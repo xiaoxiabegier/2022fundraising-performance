@@ -9,11 +9,13 @@ export default function Layout({ children }){
     const [tabValue, setTabValue] = useState(0)
     return(
         <>
+        <ThemeProvider theme={theme}>
         <TabValueContext.Provider value={{tabValue, setTabValue}}>
         <NavTabs/>
         <FloatingActionButtons/>
         {children }
         </TabValueContext.Provider>
+        </ThemeProvider>    
         </>
     )
 }
