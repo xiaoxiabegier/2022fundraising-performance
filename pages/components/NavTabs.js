@@ -22,14 +22,14 @@ export default function NavTabs() {
 
     const router = useRouter()
 
-    const valueObj = useContext()
+    const [value, setValue] = useState(0)
 
     const handleChange = (event, newValue) => {
-        valueObj.setValue(newValue);
-        if (valueObj.value === 0) router.push("/3638castro");
-        else if (valueObj.value === 1) router.push("/817825rodney");
-        else if (valueObj.value === 2) router.push("/539blossom");
-        else if (valueObj.value === 3) router.push("/61castro");
+        setValue(newValue);
+        if (value === 0) router.push("/3638castro");
+        else if (value === 1) router.push("/817825rodney");
+        else if (value === 2) router.push("/539blossom");
+        else if (value === 3) router.push("/61castro");
     };
 
     return (
@@ -58,10 +58,10 @@ const theme = createTheme({
             main:  '#f50057',
         },
         secondary: {
-            main: 'rgba(162,12,255,0.54)',
+            main: 'rgb(168, 102, 255)',
         },
         text: {
-            secondary: 'rgba(162,12,255,0.54)',
+            secondary: 'rgb(168, 102, 255)',
         },
     },
 });
