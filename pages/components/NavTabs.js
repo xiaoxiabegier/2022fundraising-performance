@@ -59,10 +59,10 @@ const theme = createTheme({
             main:  '#f50057',
         },
         secondary: {
-            main: 'rgb(168, 102, 255)',
+            main: 'rgb(110, 0, 255)',
         },
         text: {
-            secondary: 'rgb(168, 102, 255)',
+            secondary: 'rgb(110, 0, 255)',
         },
     },
 });
