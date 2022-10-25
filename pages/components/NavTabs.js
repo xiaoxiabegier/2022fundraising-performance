@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useRouter} from "next/router";
+import {useContext} from "react";
 
 function LinkTab(props) {
     return (
@@ -21,14 +22,14 @@ export default function NavTabs() {
 
     const router = useRouter()
 
-    const [value, setValue] = React.useState(0);
+    const valueObj = useContext()
 
     const handleChange = (event, newValue) => {
-        setValue(newValue);
-        if (value === 0) router.push("/3638castro");
-        else if (value === 1) router.push("/817825rodney");
-        else if (value === 2) router.push("/539blossom");
-        else if (value === 3) router.push("/61castro");
+        valueObj.setValue(newValue);
+        if (valueObj.value === 0) router.push("/3638castro");
+        else if (valueObj.value === 1) router.push("/817825rodney");
+        else if (valueObj.value === 2) router.push("/539blossom");
+        else if (valueObj.value === 3) router.push("/61castro");
     };
 
     return (
