@@ -6,6 +6,7 @@ import south61 from "../public/61 south.jpeg"
 
 
 
+
 export default function Home() {
     let images = [south3638, south817825, south539, south61]
     const css = { width: '100%', height: 'auto' }
@@ -14,7 +15,7 @@ export default function Home() {
         imageFeedElements.push(<Image priority={true} alt={images[elem]} src={images[elem]} sizes="100vw" style={css} />)
     }
     return(
-        <div>
-            {imageFeedElements}
-        </div>)
+            <div>
+                {imageFeedElements}
+            </div>)
 }
