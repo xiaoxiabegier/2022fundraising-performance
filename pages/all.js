@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import south3638 from "../public/3638 south.jpeg"
 import south817825 from "../public/817825 south.jpeg"
 import south539 from "../public/539 south.jpeg"
