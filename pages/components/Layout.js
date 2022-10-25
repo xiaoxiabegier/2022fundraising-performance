@@ -1,7 +1,9 @@
+import NavTabs from "./NavTabs.js"
+
 export default function Layout({ children }){
     return(
         <>
-        <h1>I like </h1>
+        <NavTabs/>
         {children }
         </>
     )
