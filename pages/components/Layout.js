@@ -9,13 +9,11 @@ export default function Layout({ children }){
     const [tabValue, setTabValue] = useState(0)
     return(
         <>
-
         <TabValueContext.Provider value={{tabValue, setTabValue}}>
         <NavTabs/>
         <FloatingActionButtons/>
         {children }
         </TabValueContext.Provider>
-
         </>
     )
 }

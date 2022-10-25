@@ -1,28 +1,39 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import NavigationIcon from '@mui/icons-material/Navigation';
+import {useContext} from "react";
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import {TabValueContext} from "./Layout";
+import {useRouter} from "next/router";
+
 
 export default function FloatingActionButtons() {
+    const router = useRouter()
+
+
+    const tabValueObj = useContext(TabValueContext)
+
+    if (tabValueObj.tabValue === 0) return <div></div>;
+
+
+    function handleClick(){
+
+        if (tabValueObj.tabValue === 1) router.push("/architectural3638castro");
+        else if (tabValueObj.tabValue === 2) router.push("/architectural817825rodney");
+        else if (tabValueObj.tabValue === 3) router.push("/architectural539blossom");
+        else if (tabValueObj.tabValue === 4) router.push("/architectural61castro");
+
+
+    }
+
     return (
             <Box className={"FloatingActionButtons"} sx={{ '& > :not(style)': { m: 1 } }}>
-                <Fab color = "secondary" variant="extended">
-                    <NavigationIcon sx={{ mr: 1 }} />
-                    ARCITECTURAL
+                <Fab color = "secondary" variant="extended" onClick={handleClick}>
+                    <FileDownloadIcon  />
+                    architectural
                 </Fab>
             </Box>
             );
 }
 
 
-
-const fabLinks = {
-    "3638castro": {architectural: "https://storage.googleapis.com/2022fundraising-website/3638/36%2038.pdf" },
-    "817rodney": {architectural: "https://storage.googleapis.com/2022fundraising-website/825/817.pdf"},
-    "825rodney": {architectural: "https://storage.googleapis.com/2022fundraising-website/825/825.pdf"},
-    "539blossom": {architectural: "https://storage.googleapis.com/2022fundraising-website/539blossom/539.pdf"},
-    "61castro": {architectural: "https://storage.googleapis.com/2022fundraising-website/61castro/61.pdf"}
-}
