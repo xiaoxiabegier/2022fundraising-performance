@@ -8,7 +8,6 @@ import {useRouter} from "next/router";
 
 
 export default function FloatingActionButtons() {
-    const router = useRouter()
 
 
     const tabValueObj = useContext(TabValueContext)
@@ -17,15 +16,14 @@ export default function FloatingActionButtons() {
 
 
     function handleClick(x){
-        console.log(x)
-        if (tabValueObj.tabValue === 1) router.push("/architectural3638castro");
-        else if (tabValueObj.tabValue === 2) router.push("/architectural817825rodney");
-        else if (tabValueObj.tabValue === 3) router.push("/architectural539blossom");
-        else if (tabValueObj.tabValue === 4) router.push("/architectural61castro");
+        if (tabValueObj.tabValue === 1) window.open("/architectural3638castro");
+        else if (tabValueObj.tabValue === 2) window.open("/architectural817825rodney");
+        else if (tabValueObj.tabValue === 3) window.open("/architectural539blossom");
+        else if (tabValueObj.tabValue === 4) window.open("/architectural61castro");
     }
 
     return (
-            <Box className={"FloatingActionButtons"} sx={{ '& > :not(style)': { m: 1 } }}>
+            <Box className={"FloatingActionButtons"} >
                 <Fab color = "secondary" variant="extended" onClick={handleClick}>
                     <FileDownloadIcon  />
                     architectural
