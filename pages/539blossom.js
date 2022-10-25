@@ -3,7 +3,7 @@ import floor539 from "../public/539 floor.jpeg"
 import west539 from "../public/539 west.jpeg"
 import east539 from "../public/539 east.jpeg"
 import north539 from "../public/539 north.jpeg"
-import Image from "next/future/image";
+import Image from "next/image";
 
 
 

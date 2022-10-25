@@ -3,7 +3,7 @@ import floor61 from "../public/61 floor.jpeg"
 import west61 from "../public/61 west.jpeg"
 import east61 from "../public/61 east.jpeg"
 import north61 from "../public/61 north.jpeg"
-import Image from "next/future/image";
+import Image from "next/image";
 
 
 export default function Home() {
