@@ -16,14 +16,12 @@ export default function FloatingActionButtons() {
     if (tabValueObj.tabValue === 0) return <div></div>;
 
 
-    function handleClick(){
-
+    function handleClick(x){
+        console.log(x)
         if (tabValueObj.tabValue === 1) router.push("/architectural3638castro");
         else if (tabValueObj.tabValue === 2) router.push("/architectural817825rodney");
         else if (tabValueObj.tabValue === 3) router.push("/architectural539blossom");
         else if (tabValueObj.tabValue === 4) router.push("/architectural61castro");
-
-
     }
 
     return (

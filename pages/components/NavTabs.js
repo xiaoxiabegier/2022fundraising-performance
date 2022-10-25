@@ -57,7 +57,7 @@ export default function NavTabs() {
     return (
             <div className={"NavTabs"}>
             <Box sx={{width: '100%'}}>
-                <Tabs textColor="secondary" indicatorColor="secondary" tabPosition="top" value={tabValueObj.tabValue} onChange={handleChange}
+                <Tabs variant={"scrollable"} textColor="secondary" indicatorColor="secondary" tabPosition="top" value={tabValueObj.tabValue} onChange={handleChange}
                       aria-label="nav tabs example">
                     <LinkTab label="all" href="/all"/>
                     <LinkTab label="36 38 Castro St" href="/3638castro"/>

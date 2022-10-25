@@ -14,7 +14,7 @@ module.exports = {
                 basePath: false,
             },
             {
-                source: "/architectural817rodney",
+                source: "/architectural817825rodney",
                 destination: "https://storage.googleapis.com/2022fundraising-website/825/817.pdf",
                 permanent: false,
                 basePath: false,
