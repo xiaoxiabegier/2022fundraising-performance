@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import {createTheme, ThemeProvider} from "@mui/material";
 import {useRouter} from "next/router";
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 
 function LinkTab(props) {
     return (
@@ -19,8 +19,14 @@ function LinkTab(props) {
 }
 
 export default function NavTabs() {
-
     const router = useRouter()
+
+    useEffect(()=> {
+        router.prefetch("/3638castro")
+        router.prefetch("/817825castro")
+        router.prefetch("/539blossom")
+        router.prefetch("/61castro")
+    })
 
     const [value, setValue] = useState(0)
 

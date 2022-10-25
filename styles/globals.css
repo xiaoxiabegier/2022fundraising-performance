@@ -4,3 +4,9 @@ html{
     position:fixed;
     z-index: 999;
 }
+
+.FloatingActionButtons{
+    position: fixed;
+    z-index: 9999;
+    bottom: 10px;
+}
