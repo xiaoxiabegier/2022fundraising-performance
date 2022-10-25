@@ -14,7 +14,7 @@ export default function Home() {
     const css = { width: '100%', height: 'auto' }
     let imageFeedElements = []
     for(let elem in images) {
-        imageFeedElements.push(<Image alt={images[elem]} src={images[elem]} sizes="100vw" style={css} />)
+        imageFeedElements.push(<Image priority={true} alt={images[elem]} src={images[elem]} sizes="100vw" style={css} />)
     }
     return(
         <div>
