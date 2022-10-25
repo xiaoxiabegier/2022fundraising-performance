@@ -41,7 +41,6 @@ export default function NavTabs() {
 
     return (
             <div className={"NavTabs"}>
-        <ThemeProvider theme={theme}>
             <Box sx={{width: '100%'}}>
                 <Tabs textColor="secondary" indicatorColor="secondary" tabPosition="top" value={value} onChange={handleChange}
                       aria-label="nav tabs example">
@@ -51,7 +50,6 @@ export default function NavTabs() {
                     <LinkTab label="61 Castro St" href="/61castro"/>
                 </Tabs>
             </Box>
-        </ThemeProvider>
                 </div>
 
     );
