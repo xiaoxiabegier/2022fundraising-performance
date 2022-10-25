@@ -3,12 +3,6 @@
     src: url("../public/GoldmanSans_W_Th.woff2") format("woff2")
 }
 
-@media only screen and (max-width: 1023px) {
-    .NavTabs{
-        position: static;
-    }
-}
-
 html {
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
@@ -20,8 +14,15 @@ html {
     z-index: 999;
 }
 
+
 .FloatingActionButtons{
     position: fixed;
     z-index: 9999;
     bottom: 10px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .NavTabs{
+        position: static;
+    }
 }
