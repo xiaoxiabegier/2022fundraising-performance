@@ -1,6 +1,6 @@
 import NavTabs from "./NavTabs.js"
 import FloatingActionButtons from "./FloatingActionButtons";
-import {createTheme, ThemeProvider} from "@mui/material";
+import {colors, createTheme, ThemeProvider} from "@mui/material";
 
 export default function Layout({ children }){
     return(
@@ -19,13 +19,16 @@ const theme = createTheme({
     palette: {
         type: 'light',
         primary: {
-            main: '#f50057',
+            main: colors.orange[900],
         },
         secondary: {
-            main: 'rgb(110, 0, 255)',
+            main: colors.orange[900],
         },
         text: {
-            secondary: 'rgb(110, 0, 255)',
+            secondary: colors.orange[900],
         },
+    },
+    typography: {
+        fontFamily: ["Goldman Sans"]
     }
 });
