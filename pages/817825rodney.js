@@ -4,17 +4,21 @@ import west817825 from "../public/817825 west.jpeg"
 import east817825 from "../public/817825 east.jpeg"
 import north817825 from "../public/817825 north.jpeg"
 import Image from "next/image";
-import {getMaterialsData} from "./api/dataFetching.mjs";
+import {getMaterialsData, getInitialState} from "./api/dataFetching.mjs";
 import Mt from "./Mt";
 
 
 export async function getStaticProps(){
     const data = await getMaterialsData("817 Rodney Dr")
+    let primaryColumnVisibilityModel = await getInitialState("ColumnVisibilityModel")
+
+    let initialPrimaryGridState = await getInitialState("APIStateExport")
+    initialPrimaryGridState.columns.columnVisibilityModel = primaryColumnVisibilityModel
+    initialPrimaryGridState.preferencePanel.open = false
     return{
-        props: {data}
+        props: {data, initialPrimaryGridState}
     }
 }
-
 
 export default function Home(props) {
     let images = [south817825, floor817825, west817825, east817825, north817825]
@@ -26,7 +30,7 @@ export default function Home(props) {
     return(
         <div>
             {imageFeedElements}
-            <Mt data = {props.data} />
+            <Mt data = {props.data} initialPrimaryGridState={props.initialPrimaryGridState} />
 
         </div>)
 }

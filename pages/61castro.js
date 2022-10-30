@@ -4,13 +4,18 @@ import west61 from "../public/61 west.jpeg"
 import east61 from "../public/61 east.jpeg"
 import north61 from "../public/61 north.jpeg"
 import Image from "next/image";
-import {getMaterialsData} from "./api/dataFetching.mjs";
+import {getMaterialsData, getInitialState} from "./api/dataFetching.mjs";
 import Mt from "./Mt";
 
 export async function getStaticProps(){
     const data = await getMaterialsData("61 Castro St")
+    let primaryColumnVisibilityModel = await getInitialState("ColumnVisibilityModel")
+
+    let initialPrimaryGridState = await getInitialState("APIStateExport")
+    initialPrimaryGridState.columns.columnVisibilityModel = primaryColumnVisibilityModel
+    initialPrimaryGridState.preferencePanel.open = false
     return{
-        props: {data}
+        props: {data, initialPrimaryGridState}
     }
 }
 
@@ -24,7 +29,7 @@ export default function Home(props) {
     return(
         <div>
             {imageFeedElements}
-            <Mt data = {props.data} />
+            <Mt data = {props.data} initialPrimaryGridState={props.initState} />
 
         </div>)
 }

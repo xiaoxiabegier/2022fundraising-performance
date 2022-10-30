@@ -4,13 +4,18 @@ import west539 from "../public/539 west.jpeg"
 import east539 from "../public/539 east.jpeg"
 import north539 from "../public/539 north.jpeg"
 import Image from "next/image";
-import {getMaterialsData} from "./api/dataFetching.mjs";
+import {getMaterialsData, getInitialState} from "./api/dataFetching.mjs";
 import Mt from "./Mt";
 
 export async function getStaticProps(){
     const data = await getMaterialsData("539 Blossom Way")
+    let primaryColumnVisibilityModel = await getInitialState("ColumnVisibilityModel")
+
+    let initialPrimaryGridState = await getInitialState("APIStateExport")
+    initialPrimaryGridState.columns.columnVisibilityModel = primaryColumnVisibilityModel
+    initialPrimaryGridState.preferencePanel.open = false
     return{
-        props: {data}
+        props: {data, initialPrimaryGridState}
     }
 }
 
@@ -25,7 +30,7 @@ export default function Home(props) {
     return(
         <div>
             {imageFeedElements}
-            <Mt data = {props.data} />
+            <Mt data = {props.data} initialPrimaryGridState = {initialPrimaryGridState} />
 
         </div>)
 }

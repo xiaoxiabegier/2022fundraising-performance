@@ -54,6 +54,8 @@ export async function uploadColumnVisibility(gridState){ return new Promise(func
 })
 }
 
+
+
 export async function getInitialState(docID){
     return new Promise(function(resolve, reject){
         getDoc(doc(firestore, "websites/materials takeoff/states", docID)).then(x => resolve((JSON.parse(x.data().gridState))))

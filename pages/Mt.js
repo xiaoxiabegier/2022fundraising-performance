@@ -1,4 +1,4 @@
-import {getMaterialsData, uploadNewCellState} from "./api/dataFetching.mjs"
+import {getMaterialsData, uploadNewCellState, uploadGridStateObj} from "./api/dataFetching.mjs"
 import {createContext, useContext, useState} from "react";
 import {
     rowsFromData, columnsFromRows
@@ -35,7 +35,7 @@ export default function Mt(props){
             <ThemeProvider theme={theme}>
                 <PrimaryGridColumnsContext.Provider value = {{primaryGridColumns, setPrimaryGridColumns}}>
                     <PrimaryGridRowsContext.Provider value = {{primaryGridRows, setPrimaryGridRows}}>
-                        <PrimaryGrid initialState = {[]}/>
+                        <PrimaryGrid initialState = {props.initialPrimaryGridState}/>
                     </PrimaryGridRowsContext.Provider>
                 </PrimaryGridColumnsContext.Provider>
             </ThemeProvider>
@@ -60,8 +60,8 @@ function PrimaryGrid(props){
 
     function onColumnVisibilityModelChange(x){
         console.log(x)
-//        uploadGridStateObj(apiRef.current.exportState(),"APIStateExport")
-//        uploadGridStateObj(x, "ColumnVisibilityModel")
+        uploadGridStateObj(apiRef.current.exportState(),"APIStateExport")
+        uploadGridStateObj(x, "ColumnVisibilityModel")
     }
 
     return (
