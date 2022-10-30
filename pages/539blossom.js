@@ -8,7 +8,7 @@ import {getMaterialsData, getInitialState} from "./api/dataFetching.mjs";
 import Mt from "./Mt";
 
 export async function getStaticProps(){
-    const propertyID = "530 Blossom Way"
+    const propertyID = "539 Blossom Way"
     const data = await getMaterialsData(propertyID)
     let primaryColumnVisibilityModel = await getInitialState("ColumnVisibilityModel")
 
