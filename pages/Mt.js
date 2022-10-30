@@ -1,23 +1,17 @@
 import {getMaterialsData} from "./api/dataFetching.mjs"
 import {createContext, useContext, useState} from "react";
 import {
-    getPaymentsDataset,
-    objectToColumns,
-    objectToRows,
-    objectToColumnsSecondary,
     rowsFromData, columnsFromRows
 } from "./api/dataTransformations";
 import {DataGridPremium, GridToolbar, useGridApiRef} from "@mui/x-data-grid-premium";
 import {colors, createTheme, ThemeProvider} from "@mui/material";
 import Box from "@mui/material/Box";
 
-
-
 const PrimaryGridColumnsContext = createContext({})
 const PrimaryGridRowsContext = createContext({})
 
 export default function Mt(props){
-
+    
     const theme = createTheme({
         palette: {
             primary:{
