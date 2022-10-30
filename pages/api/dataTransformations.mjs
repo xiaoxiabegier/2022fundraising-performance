@@ -28,7 +28,10 @@ export function columnsFromRows(arry){
                     if (columns[colElem].field === rowKey) found = true
                 }
             }
-            if (!found) columns.push({field: rowKey, headerName: rowKey, width: 150, editable: true})
+            if ((!found) && (rowKey === "price")) columns.push({field: rowKey, headerName: rowKey, width: 150, editable: true, type: "number"})
+            else {
+                if (!found) columns.push({field: rowKey, headerName: rowKey, width: 150, editable: true})
+            }
         }
     }
     return  columns
