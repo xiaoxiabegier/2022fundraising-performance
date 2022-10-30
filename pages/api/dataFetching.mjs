@@ -26,4 +26,45 @@ export async function getMaterialsData(propertyID){
 }
 
 
+export async function uploadStateChange(gridState){
+    return new Promise(function(resolve,reject) {
+        setDoc(doc(firestore, "websites/materials takeoff/states", "main"),  { createdAt: serverTimestamp(), gridState: JSON.stringify(gridState)}).then(resolve("state updated"))
+    })
+}
+
+export async function uploadNewCellState(newCellState, oldCellState){
+    return new Promise(async function(resolve, reject) {
+        for(let key in newCellState){
+            if (newCellState[key] !== oldCellState[key]) {
+                console.log(key)
+                const docRef = doc(firestore, "future units/36 Castro St/materials/"+newCellState.id);
+                let update = { }
+                update[key] = newCellState[key]
+                console.log(update)
+                await updateDoc(docRef, update).then((x) => resolve(newCellState))
+            }
+        }
+        resolve(oldCellState)
+
+    })
+}
+
+export async function uploadColumnVisibility(gridState){ return new Promise(function(resolve,reject) {
+    setDoc(doc(firestore, "websites/materials takeoff/states", "ColumnVisibilityModel"),  { createdAt: serverTimestamp(), gridState: JSON.stringify(gridState)}).then(resolve("state updated"))
+})
+}
+
+export async function getInitialState(docID){
+    return new Promise(function(resolve, reject){
+        getDoc(doc(firestore, "websites/materials takeoff/states", docID)).then(x => resolve((JSON.parse(x.data().gridState))))
+    })
+}
+
+
+
+export async function uploadGridStateObj(gridState, docName) {
+    return new Promise(function(resolve, reject) {
+        setDoc(doc(firestore, "websites/materials takeoff/states",docName), {createdAt: serverTimestamp(), gridState: JSON.stringify(gridState)})
+    })
+}
 

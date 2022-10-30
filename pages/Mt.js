@@ -1,4 +1,4 @@
-import {getMaterialsData} from "./api/dataFetching.mjs"
+import {getMaterialsData, uploadNewCellState} from "./api/dataFetching.mjs"
 import {createContext, useContext, useState} from "react";
 import {
     rowsFromData, columnsFromRows
@@ -65,12 +65,13 @@ function PrimaryGrid(props){
     }
 
     return (
-            <Box sx={{height: "90vh", width: "100%" , border: "0px solid black"}}>
+            <Box sx={{height: "93.8vh", width: "100%" , border: "0px solid black"}}>
                 <DataGridPremium
                     apiRef={apiRef}
                     initialState = {props.initialState}
                     rowReordering
                     density ="compact"
+                    processRowUpdate={uploadNewCellState}
                     onColumnVisibilityModelChange = {onColumnVisibilityModelChange }
                     components={{Toolbar: GridToolbar}}
                     getDetailPanelContent={getPrimaryGridDetailPanelContent}
