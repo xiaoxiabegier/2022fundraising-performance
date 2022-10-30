@@ -17,7 +17,6 @@ export async function getStaticProps(){
     return{
         props: {data, initialPrimaryGridState},
         revalidate: 1
-        
     }
 }
 

@@ -17,22 +17,23 @@ export async function getStaticProps(){
     return{
         props: {data, initialPrimaryGridState},
         revalidate: 1
-        
     }
 }
 
 
 export default function Home(props) {
+
     let images = [south539, floor539, west539, east539, north539]
     const css = { width: '100%', height: 'auto' }
     let imageFeedElements = []
     for(let elem in images) {
         imageFeedElements.push(<Image priority={true} alt={images[elem]} src={images[elem]} sizes="100vw" style={css} />)
     }
+    console.log(props.initialPrimaryGridState)
     return(
         <div>
-            {imageFeedElements}
-            <Mt data = {props.data} initialPrimaryGridState = {initialPrimaryGridState} />
 
+            {imageFeedElements}
+            <Mt data = {props.data} initialPrimaryGridState={props.initialPrimaryGridState} />
         </div>)
 }
