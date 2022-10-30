@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "dataFetching",
+            "program": "node",
+            "args": ["./pages/api/dataFetching.mjs"]
+        },
+      {
+        "type": "command",
+        "name": "dataTransformations",
+        "program": "node",
+        "args": ["./pages/api/dataTransformations.mjs"]
+      }
+
+    ]
+}

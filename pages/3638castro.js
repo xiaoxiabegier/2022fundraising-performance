@@ -4,11 +4,18 @@ import west3638 from "../public/3638 west.jpeg"
 import east3638 from "../public/3638 east.jpeg"
 import north3638 from "../public/3638 north.jpeg"
 import Image from "next/image";
+import {getMaterialsData} from "./api/dataFetching.mjs";
+import Mt from "./Mt";
+
+export async function getStaticProps(){
+    const data = await getMaterialsData("36 Castro St")
+    return{
+        props: {data}
+    }
+}
 
 
-
-
-export default function Home() {
+export default function Home(props) {
     let images = [south3638, floor3638, west3638, east3638, north3638]
     const css = { width: '100%', height: 'auto' }
     let imageFeedElements = []
@@ -18,5 +25,6 @@ export default function Home() {
     return(
         <div>
             {imageFeedElements}
+            <Mt data = {props.data} />
         </div>)
 }

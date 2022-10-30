@@ -5,8 +5,7 @@ import south539 from "../public/539 south.jpeg"
 import south61 from "../public/61 south.jpeg"
 
 
-
-export default function Home() {
+export default function Home(props) {
     let images = [south3638, south817825, south539, south61]
     const css = { width: '100%', height: 'auto' }
     let imageFeedElements = []

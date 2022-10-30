@@ -4,11 +4,19 @@ import west817825 from "../public/817825 west.jpeg"
 import east817825 from "../public/817825 east.jpeg"
 import north817825 from "../public/817825 north.jpeg"
 import Image from "next/image";
+import {getMaterialsData} from "./api/dataFetching.mjs";
+import Mt from "./Mt";
 
 
+export async function getStaticProps(){
+    const data = await getMaterialsData("817 Rodney Dr")
+    return{
+        props: {data}
+    }
+}
 
 
-export default function Home() {
+export default function Home(props) {
     let images = [south817825, floor817825, west817825, east817825, north817825]
     const css = { width: '100%', height: 'auto' }
     let imageFeedElements = []
@@ -18,5 +26,7 @@ export default function Home() {
     return(
         <div>
             {imageFeedElements}
+            <Mt data = {props.data} />
+
         </div>)
 }
