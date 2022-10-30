@@ -71,7 +71,7 @@ function PrimaryGrid(props){
     }
 
     return (
-            <Box sx={{height: "100vh", width: "100%" , border: "0px solid black"}}>
+            <Box sx={{height: "90vh", width: "100%" , border: "0px solid black"}}>
                 <DataGridPremium
                     apiRef={apiRef}
                     initialState = {props.initialState}
