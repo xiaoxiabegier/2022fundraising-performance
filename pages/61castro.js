@@ -15,7 +15,8 @@ export async function getStaticProps(){
     initialPrimaryGridState.columns.columnVisibilityModel = primaryColumnVisibilityModel
     initialPrimaryGridState.preferencePanel.open = false
     return{
-        props: {data, initialPrimaryGridState}
+        props: {data, initialPrimaryGridState},
+        revalidate: 1
     }
 }
 

@@ -2,10 +2,6 @@ import {getMaterialsData} from "./dataFetching.mjs";
 import {useState} from "react";
 
 
-
-
-
-
 export function rowsFromData(obj) {
     let rows = []
     for (let elem in obj ) {
