@@ -32,12 +32,12 @@ export async function uploadStateChange(gridState){
     })
 }
 
-export async function uploadNewCellState(newCellState, oldCellState){
+export async function uploadNewCellState(newCellState, oldCellState, propertyID){
     return new Promise(async function(resolve, reject) {
         for(let key in newCellState){
             if (newCellState[key] !== oldCellState[key]) {
                 console.log(key)
-                const docRef = doc(firestore, "future units/36 Castro St/materials/"+newCellState.id);
+                const docRef = doc(firestore, "future units/" + propertyID + "/materials/"+newCellState.id);
                 let update = { }
                 update[key] = newCellState[key]
                 console.log(update)

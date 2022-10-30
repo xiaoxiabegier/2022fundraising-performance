@@ -35,7 +35,7 @@ export default function Mt(props){
             <ThemeProvider theme={theme}>
                 <PrimaryGridColumnsContext.Provider value = {{primaryGridColumns, setPrimaryGridColumns}}>
                     <PrimaryGridRowsContext.Provider value = {{primaryGridRows, setPrimaryGridRows}}>
-                        <PrimaryGrid initialState = {props.initialPrimaryGridState}/>
+                        <PrimaryGrid initialState = {props.initialPrimaryGridState} propertyID = {props.propertyID}/>
                     </PrimaryGridRowsContext.Provider>
                 </PrimaryGridColumnsContext.Provider>
             </ThemeProvider>
@@ -64,6 +64,10 @@ function PrimaryGrid(props){
         uploadGridStateObj(x, "ColumnVisibilityModel")
     }
 
+    function processRowUpdate(newCellState, oldCellState) {
+        return uploadNewCellState(newCellState, oldCellState, props.propertyID)
+    }
+
     return (
             <Box sx={{height: "93.8vh", width: "100%" , border: "0px solid black"}}>
                 <DataGridPremium
@@ -71,7 +75,7 @@ function PrimaryGrid(props){
                     initialState = {props.initialState}
                     rowReordering
                     density ="compact"
-                    processRowUpdate={uploadNewCellState}
+                    processRowUpdate={processRowUpdate}
                     onColumnVisibilityModelChange = {onColumnVisibilityModelChange }
                     components={{Toolbar: GridToolbar}}
                     getDetailPanelContent={getPrimaryGridDetailPanelContent}

@@ -7,15 +7,17 @@ import Image from "next/image";
 import {getMaterialsData, getInitialState} from "./api/dataFetching.mjs";
 import Mt from "./Mt";
 
+
 export async function getStaticProps(){
-    const data = await getMaterialsData("61 Castro St")
+    const propertyID = "61 Castro St 1"
+    const data = await getMaterialsData(propertyID)
     let primaryColumnVisibilityModel = await getInitialState("ColumnVisibilityModel")
 
     let initialPrimaryGridState = await getInitialState("APIStateExport")
     initialPrimaryGridState.columns.columnVisibilityModel = primaryColumnVisibilityModel
     initialPrimaryGridState.preferencePanel.open = false
     return{
-        props: {data, initialPrimaryGridState},
+        props: {data, initialPrimaryGridState, propertyID},
         revalidate: 1
     }
 }
@@ -30,7 +32,7 @@ export default function Home(props) {
     return(
         <div>
             {imageFeedElements}
-            <Mt data = {props.data} initialPrimaryGridState={props.initState} />
+            <Mt data = {props.data} initialPrimaryGridState={props.initialPrimaryGridState} propertyID = {props.propertyID}/>
 
         </div>)
 }
