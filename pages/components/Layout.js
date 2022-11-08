@@ -24,13 +24,13 @@ const theme = createTheme({
     palette: {
         type: 'light',
         primary: {
-            main: colors.orange[900],
+            main: colors.black[900],
         },
         secondary: {
-            main: colors.orange[900],
+            main: colors.black[900],
         },
         text: {
-            secondary: colors.orange[900],
+            secondary: colors.black[900],
         },
     },
     typography: {
