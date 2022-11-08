@@ -6,7 +6,7 @@ import north3638 from "../public/3638 north.jpeg"
 import Image from "next/image";
 import {getMaterialsData, getInitialState} from "./api/dataFetching.mjs";
 import Mt from "./Mt";
-
+//
 export async function getStaticProps(){
     const propertyID = "36 Castro St"
     const data = await getMaterialsData(propertyID)
